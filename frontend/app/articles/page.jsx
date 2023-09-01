@@ -31,6 +31,7 @@ function Page() {
   const filteredArticles = selectedTag ? listArticles.filter((article) => article.tag === selectedTag) : listArticles;
   useEffect(() => {
     articlesApi();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return (
     <div className="bg-[#F9F9F9] h-full w-full  m-0">
@@ -48,7 +49,6 @@ function Page() {
         <div className="flex items-center justify-center w-full h-screen bg-white">
           <div>No article, go create one!</div>
           <Image src="/walker.gif" alt="alpaca" height={150} width={150} />
-          {/* <Image src="/loading.png" alt="loading" height={30} width={30} className="animate-spin" /> */}
         </div>
       )}
     </div>

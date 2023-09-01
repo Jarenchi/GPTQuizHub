@@ -17,7 +17,6 @@ function Storearticle() {
   const tagRef = useRef(null);
   const tags = useTagApi();
   const router = useRouter();
-  // const [loading, setLoading] = useState(false);
   const handleSubmit = async (e) => {
     e.preventDefault();
     const totalQuestion = parseInt(easy || 0, 10) + parseInt(normal || 0, 10) + parseInt(hard || 0, 10);
@@ -26,7 +25,6 @@ function Storearticle() {
       return;
     }
     setErrorMessage("");
-    // setLoading(true);
     console.log(nookies.get().access_token);
     try {
       const response = await axios.post(
@@ -45,7 +43,7 @@ function Storearticle() {
           headers: {
             Authorization: `Bearer ${nookies.get().access_token}`,
           },
-        }
+        },
       );
       console.log(tag);
       console.log("Completed!", response);
@@ -59,7 +57,6 @@ function Storearticle() {
         Swal.fire("生成失敗", `${error}`, "error");
       }
     }
-    // setLoading(false);
   };
   function handleInputChange(e, difficulty) {
     const newValue = e.target.value;

@@ -43,7 +43,7 @@ function QuestionBankCard({ id }) {
         params,
         {
           headers: { Authorization: `Bearer ${nookies.get().access_token}` },
-        }
+        },
       );
       console.log(response);
       mutate([`${process.env.NEXT_PUBLIC_API_URL}/quizzes/${id}/detail`]);
@@ -253,7 +253,13 @@ function QuestionBankCard({ id }) {
             setEditQuestion(true);
           }}
         >
-          <Image src={Edit} alt="edit-icon" width={30} height={30} className="absolute cursor-pointer top-3 right-3 hover:-translate-y-1 hover:scale-110" />
+          <Image
+            src={Edit}
+            alt="edit-icon"
+            width={30}
+            height={30}
+            className="absolute cursor-pointer top-3 right-3 hover:-translate-y-1 hover:scale-110"
+          />
         </button>
       </div>
       {editQuestion ? QuestionEditArea : QuestionContent}
@@ -262,6 +268,8 @@ function QuestionBankCard({ id }) {
           type="button"
           disabled={questionIndex === 0}
           onClick={() => {
+            setShowExplanation(false);
+            setShowAnswer(false);
             setQuestionIndex(questionIndex - 1);
           }}
           hidden={editQuestion}
@@ -273,6 +281,8 @@ function QuestionBankCard({ id }) {
           type="button"
           disabled={questionIndex === quiz?.questions?.length - 1}
           onClick={() => {
+            setShowExplanation(false);
+            setShowAnswer(false);
             setQuestionIndex(questionIndex + 1);
           }}
           hidden={editQuestion}

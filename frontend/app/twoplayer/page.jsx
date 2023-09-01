@@ -35,7 +35,6 @@ function App() {
       socket.off();
     };
   }, []);
-  // 對戰過程相關
   useEffect(() => {
     const handleBeforeUnload = (e) => {
       e.preventDefault();
@@ -84,7 +83,6 @@ function App() {
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [testStatus, seconds]);
-  // socket.io
   function createRoomHandler() {
     socket.emit("createroom", nookies.get().user_id);
     socket.on("createroom", (roomName) => {

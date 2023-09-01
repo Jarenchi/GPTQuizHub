@@ -28,7 +28,6 @@ function Page() {
             <div className="flex items-center justify-center pt-10 bg-white">
               <div>Loading...</div>
               <Image src="/walker.gif" alt="alpaca" height={150} width={150} />
-              {/* <Image src="/loading.png" alt="loading" height={30} width={30} className="animate-spin" /> */}
             </div>
           )}
           {isError && <p className="flex justify-center pt-10">An error occurred while fetching data.</p>}

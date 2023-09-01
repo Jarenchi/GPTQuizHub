@@ -47,7 +47,7 @@ function Page() {
         password: loginPassword,
       });
       const userData = response.data.data;
-      const maxAge = { maxAge: 100000 }; // 1hr
+      const maxAge = { maxAge: 3600 }; // 1hr
       nookies.set(null, "access_token", userData.access_token, maxAge);
       nookies.set(null, "user_id", userData.user.id.toString(), maxAge);
       router.push("/");
@@ -103,9 +103,7 @@ function Page() {
       <div className="max-w-[53rem] mx-auto">
         <div className="flex dark:border dark:border-white md:rounded-[20px]">
           <div className="flex flex-col items-center justify-center md:border dark:border-0 md:rounded-l-[20px] md:px-[7.5rem]">
-            <p className="mt-16 mb-6 text-6xl font-normal font-pattaya text-primary">
-              GPTQuizHub
-            </p>
+            <p className="mt-16 mb-6 text-6xl font-normal font-pattaya text-primary">GPTQuizHub</p>
             {showLogin ? (
               <p className="mb-10 text-4xl text-black dark:text-white font-outfit">會員登入</p>
             ) : (
